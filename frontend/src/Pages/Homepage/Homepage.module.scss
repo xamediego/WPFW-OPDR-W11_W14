@@ -1,0 +1,25 @@
+.MainBody{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: fit-content;
+  flex-grow: 1;
+  align-self: stretch;
+}
+
+.MidBody {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 50px;
+
+  gap: 100px;
+
+  height: 900px;
+}
+
+

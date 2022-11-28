@@ -1,0 +1,144 @@
+.Title {
+  font-family: 'Inter', serif;
+  font-weight: 700;
+  font-size: 22px;
+
+  text-align: center;
+
+  color: #8F2B00;
+}
+
+.Info {
+  font-family: 'Inter', serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 29px;
+  text-align: center;
+
+  color: #4E4E4E;
+}
+
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  align-self: stretch;
+  flex-grow: 1;
+}
+
+.OntdekmeerDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  height: 500px;
+
+  background: url('../../../Assets/banner.png') no-repeat;
+  background-size: cover;
+
+  align-self: stretch;
+  flex-grow: 1;
+}
+
+.OntdekmeerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  font-size: 40px;
+  padding: 0 100px;
+}
+
+.OntdekMeerButton {
+  font-size: 18px;
+
+  width: 230px;
+  height: 60px;
+
+  color: white;
+
+  border: 2px solid #F7ECEC;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0);
+
+  &:hover {
+    opacity: 0.8;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    cursor: pointer;
+  }
+}
+
+.ReserveDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: -80px;
+
+  width: 1000px;
+  height: 225px;
+
+  border-radius: 22px;
+
+  order: 1;
+}
+
+.TopReserve {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 300px;
+  height: 60px;
+
+  background: #EFB48A;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(2px);
+
+  border-radius: 8px 8px 0 0;
+}
+
+.LowReserve {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 225px;
+
+  width: 1000px;
+  height: 100px;
+
+  background: #EFB48A;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(2px);
+
+  border-radius: 0 8px 8px 8px;
+
+  order: 1;
+}
+
+.InfoReserve {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 17px;
+  gap: 10px;
+
+  width: 500px;
+  height: 78px;
+}
+
+.r {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  width: 200px;
+  height: 55px;
+}

@@ -1,0 +1,17 @@
+.RootDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-grow: 1;
+  align-self: stretch;
+}
+
+.InfoDiv {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: start;
+  align-items: start;
+}
+

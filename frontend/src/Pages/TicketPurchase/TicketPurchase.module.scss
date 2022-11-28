@@ -1,0 +1,85 @@
+h2{
+  font-family: 'Inter', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 44px;
+
+  color: #8F2B00;
+}
+
+h3 {
+  font-family: 'Inter', serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+
+  color: #EA591A;
+}
+
+.MainBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 50px;
+
+  height: fit-content;
+
+  margin-bottom: 50px;
+}
+
+.Title{
+  margin-top: 20px;
+
+  font-family: 'Inter', serif;
+
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+
+  color: #EA591A;
+}
+
+.TitleDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-left: 50px;
+
+  border-radius: 8px 8px 0 0;
+  background-color: #EFB48A;
+
+  height : 50px;
+  width : 290px;
+
+  font-family: 'Inter', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 44px;
+
+  color: #8F2B00;
+}
+
+.LineDiv{
+  width: 60vw;
+}
+
+.LowerDiv {
+  margin-left: 25px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  gap: 100px;
+
+  flex-grow: 1;
+  align-self: stretch;
+}
+
+

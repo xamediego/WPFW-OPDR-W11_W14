@@ -1,0 +1,96 @@
+.InfoText {
+  font-family: 'Inter', serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+
+  color: #4E4E4E;
+}
+
+.TopDivContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  margin-left: 25px;
+
+  flex-grow: 1;
+  align-self: stretch;
+}
+
+.TopDivTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-left: 100px;
+
+  background: #EFB48A;
+  border-radius: 10px 10px 0 0;
+
+  height: 60px;
+  width: 600px;
+
+  font-family: 'Inter', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 44px;
+
+  color: #8F2B00;
+}
+
+.TopInfoDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: #EFB48A;
+  border-radius: 10px;
+
+  height: 240px;
+  width: 1000px;
+
+  text-align: start;
+}
+
+.t {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  height: 120px;
+
+  flex-grow: 1;
+  align-self: stretch;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+
+  margin-left: 20px;
+}
+
+.ButtonDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+
+  flex-grow: 1;
+  align-self: stretch;
+
+  font-family: 'Inter', serif;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.InfoLine {
+  width: 55rem;
+}

@@ -1,0 +1,83 @@
+.MainHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 15px 39px;
+  height: fit-content;
+  gap: 50px;
+
+  background: #31203E;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(2px);
+
+  border-radius: 2px;
+
+  align-self: stretch;
+}
+
+.TitleDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-grow: 1;
+  align-self: stretch;
+}
+
+.EftellingTitle {
+  width: 180px;
+  height: 60px;
+
+  font-family: 'Irish Grover', sans-serif;
+  font-size: 42px;
+
+  color: #FFFFFF;
+
+  &:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+}
+
+.ImgDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-grow: 1;
+  align-self: stretch;
+}
+
+.ChoicesDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+
+  margin-right: 40px;
+
+  gap: 40px;
+
+  flex-grow: 1;
+  align-self: stretch;
+}
+
+.choice {
+  font-family: 'Inter', serif;
+  font-weight: 500;
+  font-size: 32px;
+
+  &:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+}
+
+.search {
+  color: #f38f5b;
+
+  &:hover {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+}
