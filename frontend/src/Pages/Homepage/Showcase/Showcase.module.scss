@@ -1,0 +1,89 @@
+.MainBody{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 50px;
+
+  height: 900px;
+}
+
+.TopDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 25px;
+}
+
+.Title{
+  font-family: 'Inter', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 44px;
+}
+
+.LineDiv{
+  width: 80vw;
+}
+
+.ImageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 40px;
+
+}
+
+.Test{
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(2px);
+
+  border-radius: 4px;
+
+  &:hover{
+    opacity: 0.8;
+    cursor: pointer;
+  }
+}
+
+.TopImages{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  gap: 40px;
+
+  flex-grow: 1;
+  align-self: stretch;
+}
+
+.TopImage {
+  @extend .Test;
+  width: 680px;
+  height: 405px;
+}
+
+.LowImages {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  gap: 85px;
+
+  flex-grow: 1;
+  align-self: stretch;
+}
+
+.LowerImage {
+  @extend .Test;
+  width: 410px;
+  height: 250px;
+}

@@ -1,0 +1,140 @@
+@import '../../App.scss';
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  grow: 1;
+  align-self: stretch;
+
+  background-color: #31203E;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(2px);
+}
+
+.TopFoot {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  flex-grow: 1;
+  align-self: stretch;
+}
+
+.LeftFoot {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-top: 8px;
+  margin-left: 20px;
+  gap: 50px;
+
+  align-self: stretch;
+  flex-grow: 1;
+}
+
+.LinksContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  gap: 35px;
+}
+
+.LinkDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: flex-start;
+}
+
+.LinkList {
+  list-style-type: none;
+  text-align: left;
+}
+
+.link {
+  @extend .SubText;
+
+  &:hover {
+    opacity: 0.85;
+    cursor: pointer;
+  }
+}
+
+.RightFoot {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+
+  flex-grow: 1;
+  align-self: stretch;
+
+  margin-top: 25px;
+  margin-bottom: 5px;
+  margin-right: 35px;
+}
+
+.SocButtonDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  gap: 15px;
+}
+
+.SocButton {
+  @extend .PrimaryButton;
+
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+}
+
+.FooterLowDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  flex-grow: 1;
+  align-self: stretch;
+}
+
+.LowDivLine {
+  align-self: stretch;
+  flex-grow: 1;
+
+  margin-right: 100px;
+  margin-left: 100px;
+}
+
+.DisclaimerDiv {
+  height: fit-content;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+
+  margin-bottom: 5px;
+  margin-left: 5px;
+
+  align-self: stretch;
+  flex-grow: 1;
+
+  gap: 30px;
+
+  font-size: 12px;
+}
+

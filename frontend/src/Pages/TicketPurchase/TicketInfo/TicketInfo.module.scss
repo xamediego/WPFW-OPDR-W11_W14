@@ -1,0 +1,107 @@
+h4{
+  font-family: 'Inter', serif;
+  font-size: 36px;
+
+  color: #F3F3FF;
+}
+
+.RootDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 50px;
+  width: 400px;
+  height: 450px;
+  border-radius: 8px;
+
+  background-color: #EFB48A;
+
+  filter: drop-shadow(1px 6px 6px rgba(0, 0, 0, 0.25));
+  backdrop-filter: blur(2px);
+}
+
+.titlediv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.LineDiv{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 300px;
+}
+
+.InputField {
+  color: #F3F3FF;
+
+  height: 120px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+
+  font-family: 'Inter', serif;
+  font-size: 30px;
+
+  gap: 10px;
+  justify-content: center;
+}
+
+.EmailInput {
+  width: 300px;
+  height: 35px;
+}
+
+.errorMessage {
+  text-align: start;
+  font-size: 12px;
+  color: #da3c3c;
+}
+
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+
+  margin-left: 50px;
+  margin-bottom: 20px;
+
+  flex-grow: 1;
+  align-self: stretch;
+}
+
+
+
+.purchaseButton {
+  width: 300px;
+  height: 60px;
+  margin-bottom: 20px;
+
+  color: white;
+
+  border: 2px solid #F7ECEC;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0);
+
+  font-family: 'Inter', serif;
+  font-size: 36px;
+
+  &:hover {
+    opacity: 0.8;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    cursor: pointer;
+  }
+}
+
