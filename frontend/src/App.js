@@ -19,7 +19,8 @@ function App() {
                 <Route path="/overons" element={<OverOns/>}/>
 
                 <Route path="/sneed" element={<TheaterShow/>}/>
-                <Route path="/reserveringinfo" element={<ReserveringsInfo/>}/>
+                
+                <Route path="/componentB" element={<ReserveringsInfo/>}/>
 
                 {/*Link back to main menu*/}
                 <Route path="*" element={<Navigate to="/"/>} />

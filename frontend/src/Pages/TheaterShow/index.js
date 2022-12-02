@@ -15,7 +15,7 @@ const Index = () => {
     const month = addDays(new Date(), 14)
 
     const [fullDates, setFullDates] = useState([]);
-    const [date, setDate] = useState(new Date());
+    const [date, setDate] = useState();
     const [count, setCount] = useState("");
     const [email, setEmail] = useState("");
     const [countError, setCountError] = useState("");
@@ -37,6 +37,17 @@ const Index = () => {
         FetchData(`https://localhost:7284/GetFullDates/${s}to${e}`, "application/json", "GET").then(data => {
                 if (data != null) {
                     setFullDates(Array.from(data, d => new Date(d)));
+                }
+
+                let x = new Date();
+
+                for (let i = 0; i < data.length; i++) {
+                    if(new Date(data[i]).getDate() === x.getDate()){
+                        x = addDays(x, 1)
+                        setDate(x);
+                    } else {
+                        break;
+                    }
                 }
             }
         );
@@ -73,7 +84,8 @@ const Index = () => {
 
             FetchData('https://localhost:7284/boek', 'application/json', 'POST', body).then(data => {
                 console.log(data)
-                navigate('/reserveringinfo', {state: {data}});
+                // navigate('/reserveringinfo', {state: {data}});
+                navigate('/componentB',{state:{id:1,name:'sabaoon'}});
             })
         }
     }
@@ -84,7 +96,7 @@ const Index = () => {
             <div className={styles.TitleDiv}>
                 <h1 className={styles.Title}>Theatershow Sneed</h1>
 
-                <hr style={{width : '60vw', color: "#2B1313"}}/>
+                <hr style={{width: '60vw', color: "#2B1313"}}/>
             </div>
 
             <div className={styles.ContentDiv}>
