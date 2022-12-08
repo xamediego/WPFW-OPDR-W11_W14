@@ -15,7 +15,7 @@ const Index = () => {
     const month = addDays(new Date(), 14)
 
     const [fullDates, setFullDates] = useState([]);
-    const [date, setDate] = useState();
+    const [date, setDate] = useState(new Date());
     const [count, setCount] = useState("");
     const [email, setEmail] = useState("");
     const [countError, setCountError] = useState("");
@@ -34,20 +34,9 @@ const Index = () => {
         const s = `${today.getFullYear()}-${parseInt(today.getMonth() + 1)}-${today.getDate()}`
         const e = `${month.getFullYear()}-${parseInt(month.getMonth() + 1)}-${month.getDate()}`
 
-        FetchData(`https://localhost:7284/GetFullDates/${s}to${e}`, "application/json", "GET").then(data => {
+        FetchData(`http://localhost:8000/GetFullDates/${s}to${e}`, "application/json", "GET").then(data => {
                 if (data != null) {
                     setFullDates(Array.from(data, d => new Date(d)));
-                }
-
-                let x = new Date();
-
-                for (let i = 0; i < data.length; i++) {
-                    if(new Date(data[i]).getDate() === x.getDate()){
-                        x = addDays(x, 1)
-                        setDate(x);
-                    } else {
-                        break;
-                    }
                 }
             }
         );
@@ -82,27 +71,28 @@ const Index = () => {
                 date,
             }
 
-            FetchData('https://localhost:7284/boek', 'application/json', 'POST', body).then(data => {
+            FetchData('http://localhost:8000/boek', 'application/json', 'POST', body).then(data => {
                 console.log(data)
-                // navigate('/reserveringinfo', {state: {data}});
-                navigate('/componentB',{state:{id:1,name:'sabaoon'}});
+                navigate('/reserveringinfo', {state: {data}});
             })
         }
     }
 
     return (
-        <div className={styles.RootDiv}>
+        <div className={styles.RootDiv} id="RootDiv">
 
             <div className={styles.TitleDiv}>
                 <h1 className={styles.Title}>Theatershow Sneed</h1>
 
-                <hr style={{width: '60vw', color: "#2B1313"}}/>
+                <hr style={{width : '60vw', color: "#2B1313"}}/>
             </div>
 
             <div className={styles.ContentDiv}>
 
-                <div className={styles.CalenderContainer}>
+                <div className={styles.CalenderContainer} id="CalenderDiv">
                     <DayPicker className={styles.Calender}
+                               id="calender"
+
                                defaultMonth={new Date()}
                                footer={footer}
                                showOutsideDays
@@ -137,7 +127,7 @@ const Index = () => {
                         <p className={styles.errorMessage}>{emailError}</p>
                     </label>
 
-                    <button type="submit" className="PrimaryButton" style={{width: '230px', height: '40px'}}>
+                    <button id="submitButton" type="submit" className="PrimaryButton" style={{width: '230px', height: '40px'}}>
                         Boek
                     </button>
                 </form>

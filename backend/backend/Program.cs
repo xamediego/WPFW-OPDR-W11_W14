@@ -1,13 +1,16 @@
 using backend.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddDbContext<DatabaseContext>();
 
+// builder.Services.AddDbContext<DatabaseContext>(options =>
+//     options.UseSqlServer(builder.Configuration.GetConnectionString("AppDbContext")));
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
 
 var allowedOrigins = "Allowed Cors";
 
@@ -19,19 +22,14 @@ builder.Services.AddCors(options =>
             policy.WithOrigins("http://localhost:3000")
                 .AllowAnyHeader()
                 .AllowAnyMethod();
+            // policy.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
         });
 });
 
 var app = builder.Build();
 
-
-if (app.Environment.IsDevelopment())
-{
-    var s = app.Services.CreateScope().ServiceProvider;
-
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseCors(allowedOrigins);
 
