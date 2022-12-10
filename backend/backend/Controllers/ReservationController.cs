@@ -45,7 +45,7 @@ public class ReservationController : ControllerBase
     public async Task<ActionResult<Reservation>> PutReservation(Reservation reservation)
     {
         Console.WriteLine(reservation.Email + " | " + reservation.Date + " | " + reservation.Count);
-        
+
         var email = new EmailAddressAttribute();
 
         var reservationCount = _context.Reservations.Count(r => r.Date == reservation.Date);
@@ -64,7 +64,8 @@ public class ReservationController : ControllerBase
 
         if (reservation.Date <= DateTime.Now || reservation.Date >= DateTime.Now.AddDays(14))
         {
-            Console.WriteLine($"Invalid DateTime {reservation.Date} >= {DateTime.Now} && {reservation.Date} <= {DateTime.Now.AddDays(14)}");
+            Console.WriteLine(
+                $"Invalid DateTime {reservation.Date} >= {DateTime.Now} && {reservation.Date} <= {DateTime.Now.AddDays(14)}");
             return BadRequest(
                 $"Invalid DateTime {reservation.Date} >= {DateTime.Now} && {reservation.Date} <= {DateTime.Now.AddDays(14)}");
         }

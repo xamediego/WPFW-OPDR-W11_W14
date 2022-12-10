@@ -3,8 +3,8 @@ import styles from './TheaterShow.module.scss';
 import {DayPicker} from "react-day-picker";
 import {addDays, format} from "date-fns";
 import * as EmailValidator from "email-validator";
-import {useNavigate} from "react-router-dom";
 import FetchData from "../../Services/DataFetcher";
+import {useNavigate} from "react-router-dom";
 
 
 const Index = () => {
@@ -20,8 +20,6 @@ const Index = () => {
     const [email, setEmail] = useState("");
     const [countError, setCountError] = useState("");
     const [emailError, setEmailError] = useState("");
-
-    const [data, setData] = useState();
 
     let footer = <p>Please pick a day.</p>;
     if (date) {
@@ -43,7 +41,7 @@ const Index = () => {
 
     }, [])
 
-    function Bestel() {
+    async function Bestel() {
 
         if (count < 1 || count > 10) {
             setCountError("Please enter a number below 10 and above 0")
@@ -71,10 +69,21 @@ const Index = () => {
                 date,
             }
 
-            FetchData('http://localhost:8000/boek', 'application/json', 'POST', body).then(data => {
-                console.log(data)
-                navigate('/reserveringinfo', {state: {data}});
-            })
+            let link = 'http://localhost:8000/boek';
+
+            await fetch(link, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": 'application/json'
+                },
+                body: JSON.stringify(body)
+            }).then((res) =>
+                res.status === 201 ? res.json() :
+                    res.status === 404 ? console.log("Source not available: " + res.status) : console.log("Forbidden: " + res.statusText)).then(data => data ? nav(data) : console.log("No data returned"));
+        }
+
+        function nav(data) {
+            navigate('/reserveringinfo', {state: data})
         }
     }
 
@@ -84,7 +93,7 @@ const Index = () => {
             <div className={styles.TitleDiv}>
                 <h1 className={styles.Title}>Theatershow Sneed</h1>
 
-                <hr style={{width : '60vw', color: "#2B1313"}}/>
+                <hr style={{width: '60vw', color: "#2B1313"}}/>
             </div>
 
             <div className={styles.ContentDiv}>
@@ -109,7 +118,7 @@ const Index = () => {
                     />
                 </div>
 
-                <form className={styles.InputFieldForm} onSubmit={(e) => {
+                <form id="ReservationForm" className={styles.InputFieldForm} onSubmit={(e) => {
                     e.preventDefault();
                     Bestel();
                 }}>
@@ -127,7 +136,8 @@ const Index = () => {
                         <p className={styles.errorMessage}>{emailError}</p>
                     </label>
 
-                    <button id="submitButton" type="submit" className="PrimaryButton" style={{width: '230px', height: '40px'}}>
+                    <button id="submitButton" type="submit" className="PrimaryButton"
+                            style={{width: '230px', height: '40px'}}>
                         Boek
                     </button>
                 </form>

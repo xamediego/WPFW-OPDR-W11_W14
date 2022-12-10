@@ -25,14 +25,16 @@ export default function DatePicker() {
             </div>
             <div className={styles.CalenderContainer}>
                 <DayPicker className={styles.Calender}
+
                            defaultMonth={new Date()}
+                           footer={footer}
+                           showOutsideDays
+
                            selected={ticketInfo.selected}
                            onSelect={ticketInfo.setSelected}
-                           footer={footer}
 
                            fromDate={today}
                            toDate={month}
-
 
                            mode="single"
                 />
