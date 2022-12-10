@@ -34,7 +34,7 @@ export default function Footer() {
                         <div className={styles.LinkDiv}>
                             <label>Meer Efteling</label>
                             <ul className={styles.LinkDiv}>
-                                <li><a onClick={() => navigate('/sneed')} className={styles.link}>Theatershow Sneed</a></li>
+                                <li><a id="TheaterShow_Link" onClick={() => navigate('/sneed')} className={styles.link}>Theatershow Sneed</a></li>
                                 <li><a className={styles.link}>Efteling Evenementen</a></li>
                                 <li><a className={styles.link}>Efteling Kids website</a></li>
                             </ul>

@@ -15,3 +15,11 @@
   align-items: start;
 }
 
+.ReservationDataDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+
+  justify-content: start;
+  align-items: center;
+}

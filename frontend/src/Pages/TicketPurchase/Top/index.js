@@ -9,6 +9,7 @@ const Top = () => {
 
     return (
         <div className={styles.TopDivContainer}>
+
             <div className={styles.TopDivTitle}>
                 <h2>
                     Voor hoeveel personen wil je reserveren?
@@ -21,11 +22,14 @@ const Top = () => {
                             Aantal personen vanaf 4 jaar
                         </h3>
                     </div>
-                    <div className={styles.ButtonDiv}><Buttons count={count.adultCount} setCount={count.setAdultCount}/></div>
+                    <div className={styles.ButtonDiv}><Buttons count={count.adultCount} setCount={count.setAdultCount}/>
+                    </div>
                 </div>
+
                 <div className={styles.InfoLine}>
                     <hr></hr>
                 </div>
+
                 <div className={styles.t}>
                     <div className={styles.text}>
                         <h3>
@@ -36,7 +40,9 @@ const Top = () => {
                                 <br/>in de reservering. Er kan gvraagdworden naar een legitimatiebewijs
                             </span>
                     </div>
-                    <div className={styles.ButtonDiv}><Buttons count={count.minorCount} setCount={count.setMinorCount}/></div>
+                    <div className={styles.ButtonDiv}><Buttons count={count.minorCount} setCount={count.setMinorCount}/>
+                    </div>
+
                 </div>
             </div>
         </div>

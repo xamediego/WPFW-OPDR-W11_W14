@@ -34,7 +34,6 @@ const Index = () => {
                     <h3>Todays Average weather!: {averageTemp}°C</h3>
                     <h3>With a high of {maxTemp}°C !</h3>
                 </div>
-                <img />
             </div>
         </div>
     );

@@ -3,8 +3,8 @@ import styles from './TheaterShow.module.scss';
 import {DayPicker} from "react-day-picker";
 import {addDays, format} from "date-fns";
 import * as EmailValidator from "email-validator";
-import {useNavigate} from "react-router-dom";
 import FetchData from "../../Services/DataFetcher";
+import {useNavigate} from "react-router-dom";
 
 
 const Index = () => {
@@ -15,13 +15,11 @@ const Index = () => {
     const month = addDays(new Date(), 14)
 
     const [fullDates, setFullDates] = useState([]);
-    const [date, setDate] = useState();
+    const [date, setDate] = useState(new Date());
     const [count, setCount] = useState("");
     const [email, setEmail] = useState("");
     const [countError, setCountError] = useState("");
     const [emailError, setEmailError] = useState("");
-
-    const [data, setData] = useState();
 
     let footer = <p>Please pick a day.</p>;
     if (date) {
@@ -34,27 +32,16 @@ const Index = () => {
         const s = `${today.getFullYear()}-${parseInt(today.getMonth() + 1)}-${today.getDate()}`
         const e = `${month.getFullYear()}-${parseInt(month.getMonth() + 1)}-${month.getDate()}`
 
-        FetchData(`https://localhost:7284/GetFullDates/${s}to${e}`, "application/json", "GET").then(data => {
+        FetchData(`http://localhost:8000/GetFullDates/${s}to${e}`, "application/json", "GET").then(data => {
                 if (data != null) {
                     setFullDates(Array.from(data, d => new Date(d)));
-                }
-
-                let x = new Date();
-
-                for (let i = 0; i < data.length; i++) {
-                    if(new Date(data[i]).getDate() === x.getDate()){
-                        x = addDays(x, 1)
-                        setDate(x);
-                    } else {
-                        break;
-                    }
                 }
             }
         );
 
     }, [])
 
-    function Bestel() {
+    async function Bestel() {
 
         if (count < 1 || count > 10) {
             setCountError("Please enter a number below 10 and above 0")
@@ -82,16 +69,26 @@ const Index = () => {
                 date,
             }
 
-            FetchData('https://localhost:7284/boek', 'application/json', 'POST', body).then(data => {
-                console.log(data)
-                // navigate('/reserveringinfo', {state: {data}});
-                navigate('/componentB',{state:{id:1,name:'sabaoon'}});
-            })
+            let link = 'http://localhost:8000/boek';
+
+            await fetch(link, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": 'application/json'
+                },
+                body: JSON.stringify(body)
+            }).then((res) =>
+                res.status === 201 ? res.json() :
+                    res.status === 404 ? console.log("Source not available: " + res.status) : console.log("Forbidden: " + res.statusText)).then(data => data ? nav(data) : console.log("No data returned"));
+        }
+
+        function nav(data) {
+            navigate('/reserveringinfo', {state: data})
         }
     }
 
     return (
-        <div className={styles.RootDiv}>
+        <div className={styles.RootDiv} id="RootDiv">
 
             <div className={styles.TitleDiv}>
                 <h1 className={styles.Title}>Theatershow Sneed</h1>
@@ -101,8 +98,10 @@ const Index = () => {
 
             <div className={styles.ContentDiv}>
 
-                <div className={styles.CalenderContainer}>
+                <div className={styles.CalenderContainer} id="CalenderDiv">
                     <DayPicker className={styles.Calender}
+                               id="calender"
+
                                defaultMonth={new Date()}
                                footer={footer}
                                showOutsideDays
@@ -119,7 +118,7 @@ const Index = () => {
                     />
                 </div>
 
-                <form className={styles.InputFieldForm} onSubmit={(e) => {
+                <form id="ReservationForm" className={styles.InputFieldForm} onSubmit={(e) => {
                     e.preventDefault();
                     Bestel();
                 }}>
@@ -137,7 +136,8 @@ const Index = () => {
                         <p className={styles.errorMessage}>{emailError}</p>
                     </label>
 
-                    <button type="submit" className="PrimaryButton" style={{width: '230px', height: '40px'}}>
+                    <button id="submitButton" type="submit" className="PrimaryButton"
+                            style={{width: '230px', height: '40px'}}>
                         Boek
                     </button>
                 </form>

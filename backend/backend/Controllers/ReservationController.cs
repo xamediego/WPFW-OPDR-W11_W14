@@ -45,10 +45,12 @@ public class ReservationController : ControllerBase
     public async Task<ActionResult<Reservation>> PutReservation(Reservation reservation)
     {
         Console.WriteLine(reservation.Email + " | " + reservation.Date + " | " + reservation.Count);
-        
+
         var email = new EmailAddressAttribute();
 
-        var reservationCount = _context.Reservations.Count(r => r.Date == reservation.Date);
+        var reservationCount = _context.Reservations.Count(r => r.Date.Day == reservation.Date.Day);
+
+        Console.WriteLine("Count Check");
 
         if (reservation.Count > 10 || reservation.Count < 1)
         {
@@ -62,18 +64,25 @@ public class ReservationController : ControllerBase
             return BadRequest($"Reservation count is too high {reservationCount} + {reservation.Count} < 11");
         }
 
-        if (reservation.Date <= DateTime.Now || reservation.Date >= DateTime.Now.AddDays(14))
+        Console.WriteLine("Date check");
+
+        if (reservation.Date.Date <= DateTime.Now.AddDays(-1).Date ||
+            reservation.Date.Date >= DateTime.Now.AddDays(15).Date)
         {
-            Console.WriteLine($"Invalid DateTime {reservation.Date} >= {DateTime.Now} && {reservation.Date} <= {DateTime.Now.AddDays(14)}");
-            return BadRequest(
-                $"Invalid DateTime {reservation.Date} >= {DateTime.Now} && {reservation.Date} <= {DateTime.Now.AddDays(14)}");
+            string error = $"Invalid DateTime {reservation.Date.Date} >= {DateTime.Now.Date} && {reservation.Date.Date} <= {DateTime.Now.AddDays(15).Date}";
+
+            Console.WriteLine(error);
+            return BadRequest(error);
         }
+
+        Console.WriteLine("Email Check");
 
         if (!email.IsValid(reservation.Email))
         {
             Console.WriteLine($"Invalid email address = {reservation.Email}");
             return BadRequest($"Invalid email address = {reservation.Email}");
         }
+
 
         _context.Reservations.Add(reservation);
 
