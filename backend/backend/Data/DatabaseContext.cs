@@ -6,7 +6,6 @@ namespace backend.Data;
 
 public class DatabaseContext : DbContext
 {
-
     public DatabaseContext(DbContextOptions<DatabaseContext> options)
         : base(options)
     {
@@ -24,5 +23,6 @@ public class DatabaseContext : DbContext
     // }
     //
     // protected override void OnConfiguring(DbContextOptionsBuilder b) => b.UseSqlite("Data Source=database.db");
+
     public DbSet<Reservation> Reservations { get; set; }
 }

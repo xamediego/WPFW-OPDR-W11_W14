@@ -7,7 +7,7 @@ builder.Services.AddControllers();
 // builder.Services.AddDbContext<DatabaseContext>();
 
 builder.Services.AddDbContext<DatabaseContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("TestContext")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AppDbContext")));
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -27,7 +27,7 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-/*
+
 using (var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
 {
     var logger = serviceScope.ServiceProvider.GetRequiredService<ILogger<Program>>();
@@ -51,7 +51,7 @@ using (var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>(
         logger.LogError(ex, "An error occurred while migrating the database.");
     }
 }
-*/
+
 
 app.UseSwagger();
 app.UseSwaggerUI();
